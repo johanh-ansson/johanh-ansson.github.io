@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffccff; /* Vaporwave background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Hide overflow to prevent scrolling */
+            position: relative; /* Position relative for absolute positioning of sparkles */
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #6600cc; /* Vaporwave container background color */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #fff; /* Text color */
+            position: relative; /* Position relative for absolute positioning of sparkles */
+            z-index: 1; /* Ensure container is above sparkles */
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for a neon effect */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            color: #fff; /* Link color */
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #ff66ff; /* Link color on hover */
+        }
+        /* Sparkles animation */
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: sparkleAnimation 1.5s infinite;
+            z-index: 0; /* Ensure sparkles are behind container */
+        }
+        @keyframes sparkleAnimation {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-200px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sparkles -->
+<div class="sparkle" style="top: 50px; left: 100px;"></div>
+<div class="sparkle" style="top: 150px; left: 300px;"></div>
+<div class="sparkle" style="top: 300px; left: 200px;"></div>
+<!-- Add more sparkles as needed -->
+
+<div class="container">
+    <h1>Your Name</h1>
+    <ul>
+        <li><a href="https://example.com">Portfolio</a></li>
+        <li><a href="https://github.com/yourusername">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/yourusername">LinkedIn</a></li>
+        <!-- Add more links as needed -->
+    </ul>
+</div>
+
+</body>
+</html>
