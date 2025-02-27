@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Sentence Picker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #output {
+            font-size: 24px;
+            margin-bottom: 20px;
+            min-height: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                margin: 20px;
+            }
+            #output {
+                font-size: 20px;
+            }
+            button {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Sentence Generator</h1>
+    <div id="output">Press the button to get a sentence</div>
+    <button id="generateButton" onclick="getRandomSentence()">Generate</button>
+    
+    <label for="buttonColor">Choose button color: </label>
+    <input type="color" id="buttonColor" onchange="changeButtonColor()">
+    
+    <script>
+        let sentences = [
+            "Brushing your teeth",
+            "Playing soccer",
+            "Dancing Queen - ABBA",
+            "Jumping like a frog",
+            "Singing Happy Birthday",
+            "Climbing a tree",
+            "Rolling in the Deep - Adele",
+            "Midnattssol",
+            "Bohemian Rhapsody - Queen",
+            "Taking a selfie",
+            "Writing a letter",
+            "Fishing in the lake"
+        ];
+        
+        function getRandomSentence() {
+            if (sentences.length === 0) {
+                document.getElementById("output").innerText = "No more sentences left!";
+                return;
+            }
+            
+            let randomIndex = Math.floor(Math.random() * sentences.length);
+            let chosenSentence = sentences.splice(randomIndex, 1)[0]; // Remove chosen item
+            document.getElementById("output").innerText = chosenSentence;
+        }
+        
+        function changeButtonColor() {
+            let color = document.getElementById("buttonColor").value;
+            document.getElementById("generateButton").style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>
