@@ -57,19 +57,19 @@
     <button class="game-button" onclick="startGame('charades')">Charades</button>
     <button class="game-button" onclick="startGame('musicCharades')">Music Charades</button>
     
-    <script>
-        let gameModes = {
-            guessTheWord: [
-                "Moose", "Fox", "Hare", "Wolf", "Reindeer", "Hedgehog",
-                "Squirrel", "Snake", "Swan", "Badger", "Seal", "Otter",
-                "Pine", "Lingonberry", "Cloudberry",
-                "Chanterelle", "Moss", "Mushroom"
-                "Archipelago", "Fjord", "Coast", "Waterfall", "Spring", 
-                "Midnight sun", "Northern lights", "Snowstorm", "Fog", "Frost", "Ice break-up", "Thunderstorm",
-                "Mountain", "Cave", "Forest", "Glacier",
-                "Nature reserve", "Ecosystem", "Food chain", "Climate change", "Pollen", "Biodiversity",
-                "Habitat", "Photosynthesis", "Air pollution", "Decomposition", "Microplastic"
-            ],
+<script>
+    let gameModes = {
+        guessTheWord: [
+            "Moose", "Fox", "Hare", "Wolf", "Reindeer", "Hedgehog",
+            "Squirrel", "Snake", "Swan", "Badger", "Seal", "Otter",
+            "Pine", "Lingonberry", "Cloudberry",
+            "Chanterelle", "Moss", "Mushroom",
+            "Archipelago", "Fjord", "Coast", "Waterfall", "Spring", 
+            "Midnight sun", "Northern lights", "Snowstorm", "Fog", "Frost", "Ice break-up", "Thunderstorm",
+            "Mountain", "Cave", "Forest", "Glacier",
+            "Nature reserve", "Ecosystem", "Food chain", "Climate change", "Pollen", "Biodiversity",
+            "Habitat", "Photosynthesis", "Air pollution", "Decomposition", "Microplastic"
+        ],
 
         charades: [
             "Eating spaghetti", "Drinking a hot drink",
@@ -79,49 +79,48 @@
             "Walking like a penguin", "Galloping on a horse",
             "Scratching like an angry cat", 
             "Climbing like a squirrel", "Stomping like an elephant",
-            "Hula hooping", " Doing Yoga pose",
+            "Hula hooping", "Doing Yoga pose",
             "Police officer directing traffic", "Chef flipping a pancake", "Firefighter spraying a hose",
             "Magician pulling a rabbit from a hat", "Barber cutting hair", "Superman/superhero flying", "Spiderman shooting webs",
             "Santa Claus carrying a sack", "A knight fighting a dragon",
             "Holding up baby Simba (Lion King)", "Throwing snow", 
             "Being lost in Linköping", "Lighting a fire", "Cooking food",
             "Laughing uncontrollably", "Crying loudly"
-                ],
+        ],
 
         musicCharades: [
             "Dancing Queen - ABBA", "Twist and Shout - The Beatles", "Stayin’ Alive - Bee Gees",
-            "Eye of the Tiger - Survivor", "Poker Face - Lady Gaga", "Take to church - Hozier"
-            "Macarena - Los Del Rio", "Shake It Off - Taylor Swift", "Umbrella - Rihanna"
+            "Eye of the Tiger - Survivor", "Poker Face - Lady Gaga", "Take Me to Church - Hozier",
+            "Macarena - Los Del Rio", "Shake It Off - Taylor Swift", "Umbrella - Rihanna",
             "We Will Rock You - Queen", "Happy - Pharrell Williams", "Gangnam Style - PSY", "YMCA - Village People", "Shut Up and Dance - Walk the Moon",
             "I Just Called to Say I Love You - Stevie Wonder", "My Heart Will Go On - Celine Dion", 
-            "Under the Sea - The Little Mermaid OST", "Walk Like an Egyptian - The Bangles", "Jump! - Van Halen",
-            "Zombie - The Cranberries", "Baby - Justin Bieber", "Low - Flo Rida", "I Kissed a Girl - Katy Perry"
-            "Baby Shark - Pinkfong", "Barbie Girl - Aqua", "Cotton Eye Joe - Rednex", "Life is a Highway - Rascall Flats"
+            "Under the Sea - The Little Mermaid OST", "Walk Like an Egyptian - The Bangles", "Jump - Van Halen",
+            "Zombie - The Cranberries", "Baby - Justin Bieber", "Low - Flo Rida", "I Kissed a Girl - Katy Perry",
+            "Baby Shark - Pinkfong", "Barbie Girl - Aqua", "Cotton Eye Joe - Rednex", "Life is a Highway - Rascal Flatts"
         ]
-};
+    };
 
-        };
-        
-        function startGame(gameMode) {
-            document.querySelectorAll('.game-button').forEach(button => button.classList.add('hidden'));
-            let newButton = document.createElement("button");
-            newButton.innerText = "Generate";
-            newButton.classList.add("game-button", "centered-button");
-            newButton.onclick = function () { getRandomSentence(gameMode); };
-            document.body.appendChild(newButton);
-            getRandomSentence(gameMode);
+    function startGame(gameMode) {
+        document.querySelectorAll('.game-button').forEach(button => button.classList.add('hidden'));
+        let newButton = document.createElement("button");
+        newButton.innerText = "Generate";
+        newButton.classList.add("game-button", "centered-button");
+        newButton.onclick = function () { getRandomSentence(gameMode); };
+        document.body.appendChild(newButton);
+        getRandomSentence(gameMode);
+    }
+
+    function getRandomSentence(gameMode) {
+        if (gameModes[gameMode].length === 0) {
+            document.getElementById("output").innerText = "Oops! We're all out of options! :(";
+            return;
         }
         
-        function getRandomSentence(gameMode) {
-            if (gameModes[gameMode].length === 0) {
-                document.getElementById("output").innerText = "Oops! We're all out of options! :(";
-                return;
-            }
-            
-            let randomIndex = Math.floor(Math.random() * gameModes[gameMode].length);
-            let chosenSentence = gameModes[gameMode].splice(randomIndex, 1)[0]; // Remove chosen item
-            document.getElementById("output").innerText = chosenSentence;
-        }
-    </script>
+        let randomIndex = Math.floor(Math.random() * gameModes[gameMode].length);
+        let chosenSentence = gameModes[gameMode].splice(randomIndex, 1)[0]; // Remove chosen item
+        document.getElementById("output").innerText = chosenSentence;
+    }
+</script>
+
 </body>
 </html>
