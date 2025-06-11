@@ -156,22 +156,25 @@
     }
 
     @media (max-width: 768px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-      .sidebar.left {
-        grid-column: 1;
-        order: 1;
-      }
-      .main-content {
-        grid-column: 1;
-        order: 2;
-      }
-      .sidebar.right {
-        grid-column: 1;
-        order: 3;
-      }
-    }
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "left"
+      "center"
+      "right";
+  }
+  .sidebar.left {
+    grid-area: left;
+  }
+  .main-content {
+    grid-area: center;
+  }
+  .sidebar.right {
+    grid-area: right;
+  }
+}
+
   </style>
 </head>
 <body>
