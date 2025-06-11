@@ -1,100 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-    <title>Your Name - Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffccff; /* Vaporwave background color */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden; /* Hide overflow to prevent scrolling */
-            position: relative; /* Position relative for absolute positioning of sparkles */
-        }
-        .container {
-            max-width: 600px;
-            padding: 20px;
-            background-color: #6600cc; /* Vaporwave container background color */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            color: #fff; /* Text color */
-            position: relative; /* Position relative for absolute positioning of sparkles */
-            z-index: 1; /* Ensure container is above sparkles */
-        }
-        h1 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for a neon effect */
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        li {
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        a {
-            text-decoration: none;
-            color: #fff; /* Link color */
-            font-size: 1.2em;
-            transition: color 0.3s ease;
-        }
-        a:hover {
-            color: #ff66ff; /* Link color on hover */
-        }
-        /* Sparkles animation */
-        .sparkle {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #fff;
-            border-radius: 50%;
-            opacity: 0;
-            animation: sparkleAnimation 1.5s infinite;
-            z-index: 0; /* Ensure sparkles are behind container */
-        }
-        @keyframes sparkleAnimation {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-200px) rotate(720deg);
-                opacity: 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>☯️ My Vaporwave Gothic Shrine</title>
+  <style>
+    @font-face {
+      font-family: "PixelFont";
+      src: url("https://fonts.cdnfonts.com/s/73919/PerfectDOSVGA437.woff") format("woff");
+    }
+
+    :root {
+      --header-bg: rgba(0, 0, 0, 0.85);
+      --body-bg: url('https://files.catbox.moe/xjse5s.gif');
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--body-bg) repeat;
+      font-family: 'PixelFont', monospace;
+      color: #ffb6c1;
+      overflow-x: hidden;
+    }
+
+  .blog-panel {
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 3px double #ff00ff;
+    box-shadow: 0 0 15px #00ffff;
+  }
+
+  .blog-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffb6c1;
+    text-shadow: 0 0 5px #ff00ff;
+    margin-bottom: 2rem;
+  }
+
+  .post {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 2px dashed #00ffff;
+    color: #fff;
+    background-blend-mode: darken;
+  }
+
+  .post-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--header-bg);
+      color: #ffb6c1;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 2px solid #ff00ff;
+      z-index: 1000;
+      box-shadow: 0 0 10px #00ffff;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr minmax(300px, 700px) 1fr;
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 7rem auto 2rem;
+      padding: 1rem;
+    }
+
+    .sidebar.left {
+      grid-column: 1;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+      border: 2px solid #ff00ff;
+      box-shadow: 0 0 10px #00ffff;
+    }
+
+    .main-content {
+      grid-column: 2;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border: 4px ridge #ff00ff;
+      box-shadow: 0 0 25px #00ffff, 0 0 40px #ff00ff;
+      position: relative;
+    }
+
+    .sidebar.right {
+      grid-column: 3;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+      border: 2px solid #ff00ff;
+      box-shadow: 0 0 10px #00ffff;
+    }
+
+    footer {
+      text-align: center;
+      color: #ccc;
+      margin: 3rem auto 2rem;
+    }
+
+    .sidebar h3 {
+      color: #00ffff;
+    }
+
+    .sidebar a {
+      color: #ff00ff;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      color: #00ffff;
+      text-decoration: underline;
+    }
+
+    .star {
+      position: fixed;
+      font-size: 1.2rem;
+      animation: diagonalFall linear infinite;
+      pointer-events: auto;
+      z-index: 998;
+    }
+
+    @keyframes diagonalFall {
+      to {
+        transform: translate(50vw, 100vh);
+        opacity: 0;
+      }
+    }
+
+    .glitter {
+      position: absolute;
+      font-size: 1rem;
+      animation: sparkle 0.5s ease-out forwards;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @keyframes sparkle {
+      to {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar.left {
+        grid-column: 1;
+        order: 1;
+      }
+      .main-content {
+        grid-column: 1;
+        order: 2;
+      }
+      .sidebar.right {
+        grid-column: 1;
+        order: 3;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>☯️ MY VAPORWAVE GOTHIC SHRINE ☯️</h1>
+  </header>
 
-<!-- Sparkles -->
-<div class="sparkle" style="top: 50px; left: 100px;"></div>
-<div class="sparkle" style="top: 150px; left: 300px;"></div>
-<div class="sparkle" style="top: 300px; left: 200px;"></div>
-<!-- Add more sparkles as needed -->
+  <div class="layout">
+    <div class="sidebar left">
+      <h3>💾 Navigation</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shrines</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Guestbook</a></li>
+      </ul>
+      <hr>
+      <h3>🎨 Theme Control</h3>
+      <label>Choose Theme:</label>
+      <select id="themeSelect" onchange="applyTheme()">
+        <option value="default">🌌 Default</option>
+        <option value="goth">🦇 Gothic</option>
+        <option value="sunset">🌇 Sunset Cyber</option>
+        <option value="matrix">💚 Matrix</option>
+      </select><br><br>
+      <label>Header BG Color:</label>
+      <input type="color" id="headerColor" value="#000000" /><br><br>
+      <label>Page BG Image URL:</label>
+      <input type="text" id="bgUrl" placeholder="Paste image URL" style="width: 100%" /><br><br>
+      <button onclick="applyBackgrounds()">Apply</button>
+    </div>
 
-<div class="container">
-    <h1>Your Name</h1>
-    <ul>
-        <li><a href="https://example.com">Portfolio</a></li>
-        <li><a href="https://github.com/yourusername">GitHub</a></li>
-        <li><a href="https://linkedin.com/in/yourusername">LinkedIn</a></li>
-        <!-- Add more links as needed -->
-    </ul>
+    <div class="main-content">
+<div class="blog-panel">
+  <div class="blog-title">🦇 MY CYBERGOTH BLOG 🦇</div>
+
+  <div class="post" style="background: url('https://i.imgur.com/8yKXzTf.gif') center center no-repeat; background-size: cover;">
+    <div class="timestamp">Posted: 2025-06-11</div>
+    <h2>🖤 First Post ~ Welcome!</h2>
+    <p>This is my very first blog post on this dreamy dark internet shrine. I'm feeling spooky and inspired 💜</p>
+    <img src="https://i.imgur.com/8yKXzTf.gif" alt="spinning skull">
+    <div class="post-buttons">
+      <a href="mailto:?subject=First Post ~ Welcome!&body=Check out this post: https://example.com#post1">
+        <img src="https://cyber.dabamos.de/88x31/email.gif" alt="email button" width="88" height="31">
+      </a>
+      <button onclick="alert('MySpace share simulated!')">
+        <img src="https://cyber.dabamos.de/88x31/myspace.gif" alt="myspace button" width="88" height="31">
+      </button>
+    </div>
+    <img src="https://exo.pet/images/rules/rainbowline.gif" alt="separator" style="display: block; margin: 1rem auto;">
+  </div>
+
+  <div class="post" style="background: url('https://i.imgur.com/k0HytQP.gif') center center no-repeat; background-size: cover;">
+    <div class="timestamp">Posted: 2025-06-10</div>
+    <h2>💾 Mood: Midnight coding spree</h2>
+    <p>It's 3AM, the vaporwave playlist is looping, and I'm editing GIFs for hours. Here's a sneak peek:</p>
+    <img src="https://i.imgur.com/k0HytQP.gif" alt="retro pc">
+    <div class="post-buttons">
+      <a href="mailto:?subject=Midnight coding spree&body=See this post: https://example.com#post2">
+        <img src="https://cyber.dabamos.de/88x31/email.gif" alt="email button" width="88" height="31">
+      </a>
+      <button onclick="alert('MySpace share simulated!')">
+        <img src="https://cyber.dabamos.de/88x31/myspace.gif" alt="myspace button" width="88" height="31">
+      </button>
+    </div>
+    <img src="https://exo.pet/images/rules/rainbowline.gif" alt="separator" style="display: block; margin: 1rem auto;">
+  </div>
 </div>
 
+    </div>
+
+    <div class="sidebar right">
+      <h3>🌙 Extras</h3>
+      <ul>
+        <li><a href="#">Moodboard</a></li>
+        <li><a href="#">Stickers</a></li>
+        <li><a href="#">Old Web Rings</a></li>
+        <li><a href="#">About Me</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 1999–2025 CyberGoth.exe | All rights reserved | Made with 💜 and glitter</p>
+  </footer>
+
+  <script>
+    function createStars() {
+      for (let i = 0; i < 50; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.textContent = '✨';
+        star.style.left = Math.random() * 100 + 'vw';
+        star.style.top = Math.random() * -100 + 'vh';
+        star.style.animationDuration = 3 + Math.random() * 5 + 's';
+
+        star.addEventListener('click', function (e) {
+          for (let j = 0; j < 6; j++) {
+            const glitter = document.createElement('div');
+            glitter.className = 'glitter';
+            glitter.textContent = '✨';
+            glitter.style.left = e.pageX + (Math.random() * 40 - 20) + 'px';
+            glitter.style.top = e.pageY + (Math.random() * 40 - 20) + 'px';
+            document.body.appendChild(glitter);
+            setTimeout(() => glitter.remove(), 600);
+          }
+          this.remove();
+        });
+
+        document.body.appendChild(star);
+      }
+    }
+
+    function applyBackgrounds() {
+      const headerColor = document.getElementById('headerColor').value;
+      const bgUrl = document.getElementById('bgUrl').value;
+
+      if (headerColor) {
+        document.querySelector('header').style.background = headerColor;
+      }
+      if (bgUrl) {
+        document.body.style.background = `url('${bgUrl}') repeat`;
+      }
+    }
+
+    function applyTheme() {
+      const theme = document.getElementById('themeSelect').value;
+      const body = document.body;
+      const header = document.querySelector('header');
+
+      switch (theme) {
+        case 'goth':
+          header.style.background = '#000000';
+          body.style.background = "url('https://i.imgur.com/8yKXzTf.gif') repeat";
+          break;
+        case 'sunset':
+          header.style.background = 'linear-gradient(to right, #ff0080, #ffcc00)';
+          body.style.background = "url('https://i.imgur.com/yRAwUzs.gif') repeat";
+          break;
+        case 'matrix':
+          header.style.background = '#001100';
+          body.style.background = "url('https://i.imgur.com/YtRZkjG.gif') repeat";
+          break;
+        default:
+          header.style.background = '#000000';
+          body.style.background = "url('https://files.catbox.moe/xjse5s.gif') repeat";
+          break;
+      }
+    }
+
+    createStars();
+  </script>
 </body>
 </html>
