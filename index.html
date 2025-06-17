@@ -229,18 +229,26 @@
   .right-inner {
     font-size: 0.3rem;
   }
-{
-  .marquee-wrapper {
-    overflow: hidden;
-    position: relative;
-    white-space: nowrap;
-  }
+      .marquee-wrapper {
+        overflow: hidden;
+        position: relative;
+        white-space: nowrap;
+      }
 
-  .marquee-text {
-    display: inline-block;
-    padding-left: 100%;
-    animation: scrollText 8s linear infinite;
-  }
+      .marquee-text {
+        display: inline-block;
+        padding-left: 100%;
+        animation: scrollText 8s linear infinite;
+      }
+    }
+
+    @keyframes scrollText {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
 }
  
   </style>
@@ -408,26 +416,30 @@
 
     createStars();
 
+    // === Marquee for mobile ===
     document.addEventListener("DOMContentLoaded", () => {
-  if (window.innerWidth <= 768) {
-    const targets = document.querySelectorAll(
-      ".sidebar .content h3, .sidebar .content label, .sidebar .content ul li"
-    );
+      if (window.innerWidth <= 768) {
+        const targets = document.querySelectorAll(
+          ".sidebar .content h3, .sidebar .content label, .sidebar .content ul li"
+        );
 
-    targets.forEach((el) => {
-      const wrapper = document.createElement("div");
-      wrapper.classList.add("marquee-wrapper");
+        targets.forEach((el) => {
+          const text = el.innerText.trim();
+          if (text.length === 0) return;
 
-      const span = document.createElement("span");
-      span.classList.add("marquee-text");
-      span.innerText = el.innerText;
+          const wrapper = document.createElement("div");
+          wrapper.classList.add("marquee-wrapper");
 
-      wrapper.appendChild(span);
-      el.innerText = "";
-      el.appendChild(wrapper);
+          const span = document.createElement("span");
+          span.classList.add("marquee-text");
+          span.innerText = text;
+
+          wrapper.appendChild(span);
+          el.innerText = "";
+          el.appendChild(wrapper);
+        });
+      }
     });
-  }
-});
 
   </script>
 </body>
