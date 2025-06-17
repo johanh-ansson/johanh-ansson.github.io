@@ -170,6 +170,7 @@
       .layout {
         gap: 0.5rem;
         margin: 3.5rem auto 1rem;
+        margin-top: calc(7rem + 3rem); /* Add extra margin-top to account for fixed header */
         padding: 0.5rem;
       }
 
@@ -237,6 +238,19 @@
   .sidebar ul li a:hover {
     color: #00ffff;
     text-decoration: underline;
+  }
+
+        header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--header-bg);
+    z-index: 1000;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 2px solid #ff00ff;
+    box-shadow: 0 0 10px #00ffff;
   }
     }
 
