@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>☯️ My Vaporwave Gothic Shrine</title>
   <style>
     @font-face {
@@ -30,6 +30,12 @@
       color: #ffb6c1;
     }
 
+    .blog-panel, .sidebar, .main-content, .post {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
     .blog-panel {
       padding: 1rem;
       background-color: rgba(0, 0, 0, 0.8);
@@ -53,8 +59,14 @@
       background-blend-mode: darken;
     }
 
+    .post img {
+      max-width: 100%;
+      height: auto;
+    }
+
     .post-buttons {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
       justify-content: center;
       margin-top: 0.5rem;
@@ -83,29 +95,21 @@
       padding: 1rem;
     }
 
-    .sidebar.left {
-      grid-column: 1;
+    .sidebar.left, .sidebar.right {
       background: rgba(0, 0, 0, 0.7);
       padding: 1rem;
       border: 2px solid #ff00ff;
       box-shadow: 0 0 10px #00ffff;
+      overflow-wrap: break-word;
     }
 
     .main-content {
-      grid-column: 2;
       background: rgba(0, 0, 0, 0.7);
       padding: 2rem;
       border: 4px ridge #ff00ff;
       box-shadow: 0 0 25px #00ffff, 0 0 40px #ff00ff;
       position: relative;
-    }
-
-    .sidebar.right {
-      grid-column: 3;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 1rem;
-      border: 2px solid #ff00ff;
-      box-shadow: 0 0 10px #00ffff;
+      overflow-wrap: break-word;
     }
 
     footer {
@@ -121,6 +125,7 @@
     .sidebar a {
       color: #ff00ff;
       text-decoration: none;
+      word-wrap: break-word;
     }
 
     .sidebar a:hover {
@@ -177,7 +182,7 @@
         order: 0;
       }
     }
-    </style>
+  </style>
 </head>
 <body>
   <header>
