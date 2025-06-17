@@ -229,28 +229,20 @@
   .right-inner {
     font-size: 0.3rem;
   }
-        .sidebar .content::before {
-    content: attr(data-text);
-    position: absolute;
-    white-space: nowrap;
-    animation: scrollText 10s linear infinite;
-    top: 0;
-    left: 0;
-  }
-
-  .sidebar .content {
+{
+  .marquee-wrapper {
     overflow: hidden;
     position: relative;
+    white-space: nowrap;
+  }
+
+  .marquee-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scrollText 8s linear infinite;
   }
 }
-   @keyframes scrollText {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-} 
+ 
   </style>
 </head>
 <body>
@@ -264,10 +256,10 @@
               <div class="content">
       <h3>💾 Navigation</h3>
       <ul>
-        <p><a href="#">Home</a></p>
-        <p><a href="#">Shrines</a></p>
-        <p><a href="#">Gallery</a></p>
-        <p><a href="#">Guestbook</a></p>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shrines</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Guestbook</a></li>
       </ul>
       <hr>
       <h3>🎨 Theme Control</h3>
@@ -350,14 +342,6 @@
   </footer>
 
   <script>
-        document.addEventListener("DOMContentLoaded", () => {
-      if (window.innerWidth <= 768) {
-        document.querySelectorAll(".sidebar .content").forEach((content) => {
-          const text = content.innerText.replace(/\s+/g, " ").trim();
-          content.setAttribute("data-text", text);
-        });
-      }
-    });
     
     function createStars() {
       for (let i = 0; i < 50; i++) {
@@ -423,6 +407,28 @@
     }
 
     createStars();
+
+    document.addEventListener("DOMContentLoaded", () => {
+  if (window.innerWidth <= 768) {
+    const targets = document.querySelectorAll(
+      ".sidebar .content h3, .sidebar .content label, .sidebar .content ul li"
+    );
+
+    targets.forEach((el) => {
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("marquee-wrapper");
+
+      const span = document.createElement("span");
+      span.classList.add("marquee-text");
+      span.innerText = el.innerText;
+
+      wrapper.appendChild(span);
+      el.innerText = "";
+      el.appendChild(wrapper);
+    });
+  }
+});
+
   </script>
 </body>
 </html>
