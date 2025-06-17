@@ -167,19 +167,46 @@
       .layout {
         display: grid;
         grid-template-columns: 15% 70% 15%;
-        gap: 1rem;
+        gap: 0.5rem;
+        margin: 3.5rem auto 1rem;
+        padding: 0.5rem;
       }
+
       .sidebar.left {
         grid-column: 1;
         order: 0;
+        transform: scale(var(--left-scale, 1));
+        transform-origin: top left;
+        padding: 0.5rem;
       }
+
       .main-content {
         grid-column: 2;
         order: 0;
+        transform: scale(var(--main-scale, 1));
+        transform-origin: top center;
+        padding: 1rem;
       }
+
       .sidebar.right {
         grid-column: 3;
         order: 0;
+        transform: scale(var(--right-scale, 1));
+        transform-origin: top right;
+        padding: 0.5rem;
+      }
+
+      .blog-panel {
+        padding: 0.5rem;
+      }
+
+      .post {
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+      }
+
+      footer {
+        margin: 1.5rem auto 1rem;
       }
     }
   </style>
