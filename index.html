@@ -13,6 +13,11 @@
     :root {
       --header-bg: rgba(0, 0, 0, 0.85);
       --body-bg: url('https://files.catbox.moe/xjse5s.gif');
+
+      /* default content scales */
+      --left-content-scale: 0.3;
+      --main-content-scale: 0.8;
+      --right-content-scale: 0.3;
     }
 
     * {
@@ -112,6 +117,22 @@
       overflow-wrap: break-word;
     }
 
+    .left-inner, .main-inner, .right-inner {
+      transform-origin: top center;
+    }
+
+    .left-inner {
+      transform: scale(var(--left-content-scale));
+    }
+
+    .main-inner {
+      transform: scale(var(--main-content-scale));
+    }
+
+    .right-inner {
+      transform: scale(var(--right-content-scale));
+    }
+
     footer {
       text-align: center;
       color: #ccc;
@@ -165,35 +186,21 @@
 
     @media (max-width: 768px) {
       .layout {
-        display: grid;
-        grid-template-columns: 15% 70% 15%;
         gap: 0.5rem;
         margin: 3.5rem auto 1rem;
         padding: 0.5rem;
       }
 
       .sidebar.left {
-        grid-column: 1;
-        order: 0;
-        transform: scale(var(--left-scale, 1));
-        transform-origin: top left;
-        padding: 0.5rem;
+        padding: 1rem;
       }
 
       .main-content {
-        grid-column: 2;
-        order: 0;
-        transform: scale(var(--main-scale, 1));
-        transform-origin: top center;
         padding: 1rem;
       }
 
       .sidebar.right {
-        grid-column: 3;
-        order: 0;
-        transform: scale(var(--right-scale, 1));
-        transform-origin: top right;
-        padding: 0.5rem;
+        padding: 1rem;
       }
 
       .blog-panel {
@@ -218,6 +225,7 @@
 
   <div class="layout">
     <div class="sidebar left">
+      <div class="left-inner">
       <h3>💾 Navigation</h3>
       <ul>
         <li><a href="#">Home</a></li>
@@ -240,8 +248,10 @@
       <input type="text" id="bgUrl" placeholder="Paste image URL" style="width: 100%" /><br><br>
       <button onclick="applyBackgrounds()">Apply</button>
     </div>
+      </div>
 
     <div class="main-content">
+      <div class="main-inner">
 <div class="blog-panel">
   <div class="blog-title">🦇 MY CYBERGOTH BLOG 🦇</div>
 
@@ -279,8 +289,10 @@
 </div>
 
     </div>
+      </div>
 
     <div class="sidebar right">
+      <div class="right-inner">
       <h3>🌙 Extras</h3>
       <ul>
         <li><a href="#">Moodboard</a></li>
@@ -289,7 +301,8 @@
         <li><a href="#">About Me</a></li>
       </ul>
     </div>
-  </div>
+      </div>
+      </div>
 
   <footer>
     <p>© 1999–2025 CyberGoth.exe | All rights reserved | Made with 💜 and glitter</p>
