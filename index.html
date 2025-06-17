@@ -88,10 +88,11 @@
 
 .layout {
   display: grid;
-  grid-template-columns: 15% 70% 15%;
+  grid-template-columns: 1fr 4fr 1fr;
   gap: 1rem;
   margin: 7rem auto 2rem;
   padding: 1rem;
+  max-width: 100%;
 }
 
 .sidebar.left, .sidebar.right, .main-content {
@@ -99,14 +100,6 @@
   padding: 1rem;
   border: 2px solid #ff00ff;
   box-shadow: 0 0 10px #00ffff;
-}
-
-    .sidebar.left {
-  margin-right: 1rem;
-}
-
-.sidebar.right {
-  margin-left: 1rem;
 }
 
     .left-inner, .main-inner, .right-inner {
