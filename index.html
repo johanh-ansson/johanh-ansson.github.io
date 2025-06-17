@@ -13,11 +13,6 @@
     :root {
       --header-bg: rgba(0, 0, 0, 0.85);
       --body-bg: url('https://files.catbox.moe/xjse5s.gif');
-
-      /* default content scales */
-      --left-content-scale: 1;
-      --main-content-scale: 1;
-      --right-content-scale: 1;
     }
 
     * {
@@ -112,18 +107,6 @@
 
     .left-inner, .main-inner, .right-inner {
       transform-origin: top center;
-    }
-
-    .left-inner {
-      transform: scale(var(--left-content-scale));
-    }
-
-    .main-inner {
-      transform: scale(var(--main-content-scale));
-    }
-
-    .right-inner {
-      transform: scale(var(--right-content-scale));
     }
 
     footer {
