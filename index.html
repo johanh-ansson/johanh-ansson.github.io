@@ -15,9 +15,9 @@
       --body-bg: url('https://files.catbox.moe/xjse5s.gif');
 
       /* default content scales */
-      --left-content-scale: 0.3;
-      --main-content-scale: 0.8;
-      --right-content-scale: 0.3;
+      --left-content-scale: 1;
+      --main-content-scale: 1;
+      --right-content-scale: 1;
     }
 
     * {
@@ -215,7 +215,20 @@
       footer {
         margin: 1.5rem auto 1rem;
       }
-    }
+
+  .left-inner {
+    font-size: 0.8rem;
+  }
+
+  .main-inner {
+    font-size: 0.9rem;
+  }
+
+  .right-inner {
+    font-size: 0.75rem;
+  }
+}
+    
   </style>
 </head>
 <body>
@@ -226,6 +239,7 @@
   <div class="layout">
     <div class="sidebar left">
       <div class="left-inner">
+              <div class="left-inner content">
       <h3>💾 Navigation</h3>
       <ul>
         <li><a href="#">Home</a></li>
@@ -249,9 +263,11 @@
       <button onclick="applyBackgrounds()">Apply</button>
     </div>
       </div>
+      </div>
 
     <div class="main-content">
       <div class="main-inner">
+              <div class="main-inner content">
 <div class="blog-panel">
   <div class="blog-title">🦇 MY CYBERGOTH BLOG 🦇</div>
 
@@ -290,9 +306,11 @@
 
     </div>
       </div>
+      </div>
 
     <div class="sidebar right">
       <div class="right-inner">
+              <div class="right-inner content">
       <h3>🌙 Extras</h3>
       <ul>
         <li><a href="#">Moodboard</a></li>
@@ -301,6 +319,7 @@
         <li><a href="#">About Me</a></li>
       </ul>
     </div>
+      </div>
       </div>
       </div>
 
