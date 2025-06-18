@@ -29,7 +29,7 @@ function activateUFO() {
     beam.remove();
     btn.disabled = false;
     btn.innerText = "👽 Again?";
-  }, 5500);
+  }, 10000);
 }
 
 const style = document.createElement("style");
