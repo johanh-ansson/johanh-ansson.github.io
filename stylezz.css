@@ -14,11 +14,8 @@
     }
 
     html, body {
-      margin: 0;
-      padding: 0;
-      width: 100vw;
-      min-height: 100vh;
-      overflow-x: hidden;
+      overflow-x: auto; /* Allow side scroll if absolutely needed */
+      touch-action: pan-x pan-y; /* Prevent gestures from breaking layout */
       background: var(--body-bg) repeat;
       font-family: 'PixelFont', monospace;
       color: #ffb6c1;
