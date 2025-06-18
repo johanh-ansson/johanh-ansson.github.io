@@ -14,8 +14,6 @@
     }
 
     html, body {
-      overflow-x: auto; /* Allow side scroll if absolutely needed */
-      touch-action: pan-x pan-y; /* Prevent gestures from breaking layout */
       background: var(--body-bg) repeat;
       font-family: 'PixelFont', monospace;
       color: #ffb6c1;
@@ -189,5 +187,15 @@ header img.header-img {
       100% {
         transform: translateX(-100%);
       }
+}
+
+@media only screen and (max-width: 768px) {
+  .scale-wrapper {
+    transform: scale(0.3);
+    transform-origin: top left;
+    width: calc(100% / 0.3); /* Compensate for the scale so layout fits */
+    height: auto;
+    overflow-x: auto;
+  }
 }
  
