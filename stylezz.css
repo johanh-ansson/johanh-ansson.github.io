@@ -201,3 +201,8 @@ header img.header-img {
     transform: rotate(2deg);
   }
 }
+
+.disco {
+  animation: disco 0.4s infinite alternate !important;
+  transition: all 0.2s ease !important;
+}
