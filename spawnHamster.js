@@ -5,7 +5,7 @@ function spawnHamster() {
   gif.style.position = "fixed";
   gif.style.left = Math.random() * (window.innerWidth - 80) + "px";
   gif.style.top = Math.random() * (window.innerHeight - 80) + "px";
-  gif.style.width = "60px";
+  gif.style.width = "600px";
   gif.style.zIndex = 9999;
   gif.style.pointerEvents = "none";
   document.body.appendChild(gif);
@@ -13,7 +13,7 @@ function spawnHamster() {
   setTimeout(() => {
     gif.classList.remove("spin-in");
     gif.classList.add("spin-out");
-  }, 8000);
+  }, 7000);
 
   setTimeout(() => gif.remove(), 9000);
 }
