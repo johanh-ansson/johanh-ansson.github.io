@@ -190,3 +190,14 @@ header img.header-img {
         transform: translateX(-100%);
       }
 }
+
+@keyframes disco {
+  from {
+    filter: hue-rotate(0deg) brightness(1.2);
+    transform: rotate(-2deg);
+  }
+  to {
+    filter: hue-rotate(360deg) brightness(1.5);
+    transform: rotate(2deg);
+  }
+}
